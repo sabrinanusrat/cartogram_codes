@@ -2,6 +2,11 @@ var width = 960,
     height = 500,
     radius = Math.min(width, height) / 2;
 
+var force = d3.layout.force()
+    .charge(0)
+    .gravity(0)
+   .size([width, height]);
+
 var color = d3.scale.ordinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
@@ -81,3 +86,5 @@ g.selectAll("path")
 .append("path")
 .attr("d",function(d){return buildSlicePath(d);})
 .style("fill", function(d,i) { return color(i); });
+
+//
